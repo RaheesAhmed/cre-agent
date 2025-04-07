@@ -1,0 +1,330 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* Professional Commercial Real Estate Theme - Light Mode */
+:root {
+  /* Base - Clean white background */
+  --background: transparent;
+  --foreground: oklch(0.98 0 0);
+  
+  /* Card */
+  --card: oklch(0.15 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  
+  /* Popover */
+  --popover: oklch(0.15 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+  
+  /* Primary - Professional blue */
+  --primary: oklch(0.55 0.18 264);
+  --primary-foreground: oklch(1 0 0);
+  
+  /* Secondary - Subtle gray */
+  --secondary: oklch(0.95 0 0);
+  --secondary-foreground: oklch(0.3 0 0);
+  
+  /* Muted */
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.5 0 0);
+  
+  /* Accent - Subtle accent */
+  --accent: oklch(0.9 0.05 264);
+  --accent-foreground: oklch(0.2 0 0);
+  
+  /* Destructive */
+  --destructive: oklch(0.65 0.15 25);
+  --destructive-foreground: oklch(1 0 0);
+  
+  /* Border & Input - Subtle borders */
+  --border: oklch(0.85 0 0);
+  --input: oklch(0.98 0 0);
+  --ring: oklch(0.8 0 0);
+  
+  /* Chart Colors - Professional CRE Palette */
+  --chart-1: oklch(0.55 0.18 264); /* Blue */
+  --chart-2: oklch(0.7 0.15 85);   /* Gold */
+  --chart-3: oklch(0.55 0.18 155); /* Teal */
+  --chart-4: oklch(0.7 0.15 35);   /* Orange */
+  --chart-5: oklch(0.55 0.15 290); /* Purple */
+  
+  /* Sidebar - Professional sidebar */
+  --sidebar: oklch(0.97 0 0);
+  --sidebar-foreground: oklch(0.2 0 0);
+  --sidebar-primary: oklch(0.55 0.18 264); /* Blue */
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.92 0 0);
+  --sidebar-accent-foreground: oklch(0.2 0 0);
+  --sidebar-border: oklch(0.9 0 0);
+  --sidebar-ring: oklch(0.8 0 0);
+  
+  /* Border Radius */
+  --radius: 0.5rem;
+}
+
+/* Base styles */
+body {
+  font-feature-settings: "rlig" 1, "calt" 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: transparent;
+  color: var(--foreground);
+}
+
+:root {
+  color-scheme: light;
+}
+
+/* Animation utilities */
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Blob animation for gradient orbs */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Text gradient animation */
+@keyframes text-gradient {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}
+
+.animate-text-gradient {
+  animation: text-gradient 3s ease infinite;
+}
+
+/* Commercial real estate specific styles */
+.property-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid var(--border);
+  background-color: var(--card);
+}
+
+.property-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+}
+
+/* Rich content display styles */
+.data-chart {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.map-container {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+/* Chat layout fixes */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chat-input-container {
+  position: sticky;
+  bottom: 0;
+  padding: 1rem;
+  background-color: var(--background);
+  border-top: 1px solid var(--border);
+  z-index: 10;
+}
+
+.chat-input {
+  resize: none;
+  min-height: 56px;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  
+  background-color: var(--input);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+.chat-input:focus {
+  outline: none;
+  
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.chat-message {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  padding: 1rem;
+  
+}
+
+.user-message {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  align-self: flex-end;
+}
+
+.assistant-message {
+  background-color: var(--card);
+  
+}
+
+/* Fix for large messages */
+.chat-message-content {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Ensure the sidebar doesn't cause overflow */
+.sidebar {
+  height: 100vh;
+  overflow-y: auto;
+  background-color: var(--sidebar);
+  border-right: 1px solid var(--sidebar-border);
+}
+
+/* Typing indicator */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.typing-indicator span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #3b82f6;
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+
